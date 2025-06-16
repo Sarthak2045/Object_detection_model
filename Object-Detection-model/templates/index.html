@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Object Detection AI</h1>
+        <p class="subtitle">Upload an image to detect objects using advanced AI</p>
+        
+        <div class="upload-section">
+            <div class="upload-box" id="uploadBox">
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <p>Drag and drop an image here or <span class="browse-text">browse</span></p>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+            </div>
+            
+            <button id="detectBtn" class="detect-btn" disabled>Detect Objects</button>
+        </div>
+        
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing image...</p>
+        </div>
+        
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>Detection Results</h2>
+            
+            <div class="images-container">
+                <div class="image-box">
+                    <h3>Original Image</h3>
+                    <img id="originalImage" src="" alt="Original">
+                </div>
+                
+                <div class="image-box">
+                    <h3>Detected Objects</h3>
+                    <img id="annotatedImage" src="" alt="Annotated">
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalObjects">0</span>
+                    <span class="stat-label">Objects Detected</span>
+                </div>
+            </div>
+            
+            <div class="objects-list">
+                <h3>Detected Objects:</h3>
+                <div id="objectsList"></div>
+            </div>
+        </div>
+        
+        <div class="error" id="error" style="display: none;">
+            <p id="errorMessage"></p>
+        </div>
+        
+        <div class="info-section">
+            <h3>Supported Objects</h3>
+            <p>This AI can detect 80+ different objects including:</p>
+            <div class="object-tags" id="objectTags">
+                <span class="tag">Person</span>
+                <span class="tag">Car</span>
+                <span class="tag">Dog</span>
+                <span class="tag">Cat</span>
+                <span class="tag">Bicycle</span>
+                <span class="tag">Chair</span>
+                <span class="tag">Bottle</span>
+                <span class="tag">Phone</span>
+                <span class="tag">Laptop</span>
+                <span class="tag">Book</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
